@@ -1,0 +1,408 @@
+let mapleader=","
+
+" ----- Vundle --------"
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+"
+" original repos on GitHub
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-git'
+Bundle 'timcharper/textile.vim'
+Bundle 'skwp/vim-rspec'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'chrisbra/csv.vim'
+Bundle 'mmalecki/vim-node.js'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'groenewege/vim-less'
+Bundle 'sunaku/vim-ruby-minitest'
+
+Bundle 'tpope/vim-unimpaired'
+" Bubble single lines
+nmap <D-Up> [e
+nmap <D-Down> ]e
+" Bubble multiple lines
+vmap <D-Up> [egv
+vmap <D-Down> ]egv
+" indent visual block
+vmap <D-Right> >gv
+vmap <D-Left> <gv
+
+Bundle 'scrooloose/nerdcommenter'
+
+Bundle 'edsono/vim-matchit'
+" % to bounce from do to end etc.
+runtime! macros/matchit.vim
+
+Bundle 'ervandew/supertab'
+Bundle 'itspriddle/ZoomWin'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'garbas/vim-snipmate'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'scrooloose/syntastic'
+" Enable syntastic syntax checking
+"let g:syntastic_enable_signs=1
+let g:syntastic_quiet_messages=0
+
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/nerdtree'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'tpope/vim-endwise'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+" gist-vim defaults
+if has("mac")
+  let g:gist_clip_command = 'pbcopy'
+elseif has("unix")
+  let g:gist_clip_command = 'xclip -selection clipboard'
+endif
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
+Bundle 'vim-scripts/vimwiki'
+Bundle 'ap/vim-css-color'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'rgarver/Kwbd.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'skalnik/vim-vroom'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-repeat'
+Bundle 'honza/vim-snippets'
+Bundle 'tpope/vim-dispatch'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'thinca/vim-visualstar'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'bronson/vim-trailing-whitespace'
+
+Bundle 'railscasts'
+Bundle 'oguzbilgic/sexy-railscasts-theme'
+" Default color scheme
+colorscheme sexy-railscasts
+
+Bundle 'kurkale6ka/vim-quotes'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'ervandew/sgmlendtag'
+Bundle 'acustodioo/vim-enter-indent'
+Bundle 'vim-scripts/HTML-AutoCloseTag'
+Bundle 'vim-scripts/toggle_words.vim'
+Bundle 'vim-scripts/swap-parameters'
+Bundle 'mattn/emmet-vim'
+
+"check
+"Bundle 'FuzzyFinder'
+" non-GitHub repos
+"Bundle 'git://git.wincent.com/command-t.git'
+" Git repos on your local machine (i.e. when working on your own plugin)
+"Bundle 'file:///Users/gmarik/path/to/plugin'
+" ...
+
+"------------ Files from Janus ------------------------------------"
+if filereadable(expand("~/dotfiles/vim/autocmds.vim"))
+  source ~/dotfiles/vim/autocmds.vim
+endif
+if filereadable(expand("~/dotfiles/vim/filetypes.vim"))
+  source ~/dotfiles/vim/filetypes.vim
+endif
+if filereadable(expand("~/dotfiles/vim/gui_settings.vim"))
+  source ~/dotfiles/vim/gui_settings.vim
+endif
+if filereadable(expand("~/dotfiles/vim/mappings.vim"))
+  source ~/dotfiles/vim/mappings.vim
+endif
+if filereadable(expand("~/dotfiles/vim/settings.vim"))
+  source ~/dotfiles/vim/settings.vim
+endif
+if filereadable(expand("~/dotfiles/vim/statusline.vim"))
+  source ~/dotfiles/vim/statusline.vim
+endif
+
+" GENERAL SETTINGS
+
+
+set shell=/bin/bash
+
+set nocompatible
+set number
+set ruler
+syntax on
+set encoding=utf-8
+
+" buffergator configuration
+let g:buffergator_autoexpand_on_split = 0
+let g:buffergator_sort_regime = "mru"
+
+
+" cursor line changes color on insert mode
+hi CursorLine ctermbg=green cterm=none
+au InsertEnter * set cursorline
+au InsertLeave * set nocursorline
+
+
+" split join shortcuts (overwrite s)
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
+
+" Whitespace stuff
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set list listchars=tab:\ \ ,trail:·
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Toggle wrap
+map <F2> :set nowrap! <CR>
+
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+set wildignore+=*.png,*.jpg,*.gif,*.bmp
+
+" Status bar
+set laststatus=2
+
+" Without setting this, ZoomWin restores windows in a way that causes
+" equalalways behavior to be triggered the next time CommandT is used.
+" This is likely a bludgeon to solve some other issue, but it works
+set noequalalways
+
+" NERDTree configuration
+let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeQuitOnOpen=1
+" map <Leader>n :NERDTreeToggle<CR>
+
+" ZoomWin configuration
+map <Leader><Space> :ZoomWin<CR>
+
+function! s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+
+
+" maybe done somewhere else
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+"au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
+" Less is css
+"au BufNewFile,BufRead *.less set filetype=css
+" .js.node is javascript
+"au BufNewFile,BufRead *.js.node set filetype=javascript
+
+au BufNewFile,BufRead *.html set filetype=html
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+"maybe in other plugin -----
+
+" compile less on less buffer save
+"au BufWritePost,FileWritePost *.less :silent !~/local/node_modules/less/bin/lessc <afile> > %:r.css
+
+" disable autolessc on less files
+"map <Leader><F9> <Esc>:au! BufWritePost,FileWritePost *.less <CR>:au BufNewFile,BufRead *.less set filetype=css
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+
+noremap 0 ^
+noremap ^ 0
+map <A-0> ^
+
+" Use modeline overrides
+set modeline
+set modelines=10
+
+" Directories for swp files
+" set backupdir=~/.vim/backup
+" set directory=~/.vim/backup
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Turn off jslint errors by default
+let g:JSLintHighlightErrorLine = 0
+
+" MacVIM shift+arrow-keys behavior (required in .vimrc)
+" let macvim_hig_shift_movement = 1
+
+" in mac
+map <D-s> :w<CR>
+imap <D-s> <Esc>:w<CR>
+vmap <D-s> <Esc>:w<CR>
+
+"in ubuntu (D-s is settings shortcut)
+map <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>
+vmap <C-s> <Esc>:w<CR>
+
+map <F4> :q<CR>
+imap <F4> :q<CR>
+map <F1> :NERDTreeToggle<CR>
+imap <F1> <Esc>:NerdTreeToggle<CR>
+
+
+" Command-Shift-F for Ack
+map <D-F> mM:Ack<space>
+map <C-F> mM:Ack<space>
+
+
+" Command-Option-ArrowKey to switch viewports
+map <C-k> <C-w>k
+imap <C-k> <Esc> <C-w>k
+map <C-j> <C-w>j
+imap <C-j> <Esc> <C-w>j
+map <C-l> <C-w>l
+imap <C-l> <Esc> <C-w>l
+map <C-h> <C-w>h
+imap <C-h> <C-w>h
+
+
+" split window
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+
+" split buffer
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
+
+nnoremap <leader>w <C-w>v<C-w>l
+
+" wordwrapping better experience
+nnoremap j gj
+nnoremap k gk
+
+"always resubstitute in all lines! (I)
+nnoremap & g&
+
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+imap <Leader>= <Esc> <C-w>=
+
+inoremap jj <Esc>
+
+" https://github.com/Shougo/neocomplcache
+let g:neocomplcache_enable_at_startup = 0
+
+" improvements in paste clipboard
+imap <C-v> <Esc>"+pa
+
+" improvements copy to clipboard
+vmap <C-c> "+y
+
+" repeat the last command and put the cursor at start of change. 
+" not nice with plugins repeat. it set up in the beginning of the file
+" map . .`[
+
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" which is the default
+map Y y$
+
+"css speed
+map <F8> <C-x>
+map <F9> <C-a>
+
+"split next comma to new line
+" map <F3> f,lr<CR>
+
+
+" custom word toggling
+let g:_toggle_words_dict = {'*': [
+    \ ['==', '!='], 
+    \ ['>', '<'], 
+    \ ['(', ')'], 
+    \ ['[', ']'], 
+    \ ['{', '}'], 
+    \ ['+', '-'], 
+    \ ['allow', 'deny'], 
+    \ ['before', 'after'], 
+    \ ['show', 'hide'], 
+    \ ['block', 'inline', 'none'],
+    \ ['define', 'undef'], 
+    \ ['good', 'bad'], 
+    \ ['if', 'unless'], 
+    \ ['in', 'out'], 
+    \ ['left', 'right'],
+    \ ['min', 'max'], 
+    \ ['on', 'off'], 
+    \ ['start', 'stop'], 
+    \ ['success', 'failure'], 
+    \ ['true', 'false'],
+    \ ['up', 'down'], 
+    \ ['left', 'right'],
+    \ ['yes', 'no'], 
+    \ ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'], 
+    \ ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'], 
+    \ ['1', '0'],
+    \ ['should', 'should_not'],
+    \ ['be_true', 'be_false'],
+    \ [],
+    \ ],  }
+
+map <F3> <Esc>:ToggleWord<CR>
+
+" Escape/Unescape HTML
+function! HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+endfunction
+
+function! HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+endfunction
+
+function! HtmlIndent()
+  silent 1,$!xmllint --format --recover - 2>/dev/null 
+endfunction
+
+" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
