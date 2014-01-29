@@ -106,6 +106,7 @@ Bundle 'vim-scripts/HTML-AutoCloseTag'
 Bundle 'vim-scripts/toggle_words.vim'
 Bundle 'vim-scripts/swap-parameters'
 Bundle 'mattn/emmet-vim'
+Bundle 'bling/vim-airline'
 
 "check
 "Bundle 'FuzzyFinder'
