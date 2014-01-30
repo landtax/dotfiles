@@ -3,8 +3,8 @@
 ""
 
 " Toggle paste mode
-nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
-imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
+nmap <silent> <F5> :set invpaste<CR>:set paste?<CR>
+imap <silent> <F5> <ESC>:set invpaste<CR>:set paste?<CR>
 
 " format the entire file
 nnoremap <leader>fef :normal! gg=G``<CR>

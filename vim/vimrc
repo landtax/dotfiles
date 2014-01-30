@@ -31,24 +31,30 @@ Bundle 'groenewege/vim-less'
 Bundle 'sunaku/vim-ruby-minitest'
 
 Bundle 'tpope/vim-unimpaired'
-" Bubble single lines
-nmap <D-Up> [e
-nmap <D-Down> ]e
-" Bubble multiple lines
-vmap <D-Up> [egv
-vmap <D-Down> ]egv
-" indent visual block
-vmap <D-Right> >gv
-vmap <D-Left> <gv
+  " Bubble single lines
+  nmap <D-Up> [e
+  nmap <D-Down> ]e
+  " Bubble multiple lines
+  vmap <D-Up> [egv
+  vmap <D-Down> ]egv
+  " indent visual block
+  vmap <D-Right> >gv
+  vmap <D-Left> <gv
 
 Bundle 'scrooloose/nerdcommenter'
-
 Bundle 'edsono/vim-matchit'
-" % to bounce from do to end etc.
-runtime! macros/matchit.vim
+  " % to bounce from do to end etc.
+  runtime! macros/matchit.vim
 
 Bundle 'ervandew/supertab'
 Bundle 'itspriddle/ZoomWin'
+  map <C-a>z :ZoomWin<CR>
+  map <Leader><Space> :ZoomWin<CR>
+  " Without setting this, ZoomWin restores windows in a way that causes
+  " equalalways behavior to be triggered the next time CommandT is used.
+  " This is likely a bludgeon to solve some other issue, but it works
+  set noequalalways
+
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'sjl/gundo.vim'
@@ -57,24 +63,26 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'scrooloose/syntastic'
-" Enable syntastic syntax checking
-"let g:syntastic_enable_signs=1
-let g:syntastic_quiet_messages=0
+  let g:syntastic_quiet_messages=0
 
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+  let NERDTreeIgnore=['\.rbc$', '\~$']
+  let NERDTreeQuitOnOpen=1
+  map <F1> :NERDTreeToggle<CR>
+  imap <F1> <Esc>:NerdTreeToggle<CR>
+
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'tpope/vim-endwise'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-" gist-vim defaults
-if has("mac")
-  let g:gist_clip_command = 'pbcopy'
-elseif has("unix")
-  let g:gist_clip_command = 'xclip -selection clipboard'
-endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
+  if has("mac")
+    let g:gist_clip_command = 'pbcopy'
+  elseif has("unix")
+    let g:gist_clip_command = 'xclip -selection clipboard'
+  endif
+  let g:gist_detect_filetype = 1
+  let g:gist_open_browser_after_post = 1
 
 Bundle 'vim-scripts/vimwiki'
 Bundle 'ap/vim-css-color'
@@ -95,8 +103,7 @@ Bundle 'bronson/vim-trailing-whitespace'
 
 Bundle 'railscasts'
 Bundle 'oguzbilgic/sexy-railscasts-theme'
-" Default color scheme
-colorscheme sexy-railscasts
+  colorscheme sexy-railscasts
 
 Bundle 'kurkale6ka/vim-quotes'
 Bundle 'AndrewRadev/splitjoin.vim'
@@ -106,7 +113,7 @@ Bundle 'vim-scripts/HTML-AutoCloseTag'
 Bundle 'vim-scripts/toggle_words.vim'
 Bundle 'vim-scripts/swap-parameters'
 Bundle 'mattn/emmet-vim'
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'
 
 "check
 "Bundle 'FuzzyFinder'
@@ -116,29 +123,40 @@ Bundle 'bling/vim-airline'
 "Bundle 'file:///Users/gmarik/path/to/plugin'
 " ...
 
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+"
 "------------ Files from Janus ------------------------------------"
-if filereadable(expand("~/dotfiles/vim/autocmds.vim"))
-  source ~/dotfiles/vim/autocmds.vim
-endif
-if filereadable(expand("~/dotfiles/vim/filetypes.vim"))
-  source ~/dotfiles/vim/filetypes.vim
-endif
-if filereadable(expand("~/dotfiles/vim/gui_settings.vim"))
-  source ~/dotfiles/vim/gui_settings.vim
-endif
-if filereadable(expand("~/dotfiles/vim/mappings.vim"))
-  source ~/dotfiles/vim/mappings.vim
-endif
-if filereadable(expand("~/dotfiles/vim/settings.vim"))
-  source ~/dotfiles/vim/settings.vim
-endif
-if filereadable(expand("~/dotfiles/vim/statusline.vim"))
-  source ~/dotfiles/vim/statusline.vim
-endif
+  if filereadable(expand("~/dotfiles/vim/autocmds.vim"))
+    source ~/dotfiles/vim/autocmds.vim
+  endif
+  if filereadable(expand("~/dotfiles/vim/filetypes.vim"))
+    source ~/dotfiles/vim/filetypes.vim
+  endif
+  if filereadable(expand("~/dotfiles/vim/gui_settings.vim"))
+    source ~/dotfiles/vim/gui_settings.vim
+  endif
+  if filereadable(expand("~/dotfiles/vim/mappings.vim"))
+    source ~/dotfiles/vim/mappings.vim
+  endif
+  if filereadable(expand("~/dotfiles/vim/settings.vim"))
+    source ~/dotfiles/vim/settings.vim
+  endif
+  if filereadable(expand("~/dotfiles/vim/statusline.vim"))
+    source ~/dotfiles/vim/statusline.vim
+  endif
+"------------ Files from Janus ------------------------------------"
 
 " GENERAL SETTINGS
-
-
 set shell=/bin/bash
 
 set nocompatible
@@ -153,7 +171,7 @@ let g:buffergator_sort_regime = "mru"
 
 
 " cursor line changes color on insert mode
-hi CursorLine ctermbg=green cterm=none
+hi CursorLine ctermbg=grey cterm=none
 au InsertEnter * set cursorline
 au InsertLeave * set nocursorline
 
@@ -190,18 +208,6 @@ set wildignore+=*.png,*.jpg,*.gif,*.bmp
 " Status bar
 set laststatus=2
 
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
-" NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$']
-let NERDTreeQuitOnOpen=1
-" map <Leader>n :NERDTreeToggle<CR>
-
-" ZoomWin configuration
-map <Leader><Space> :ZoomWin<CR>
 
 function! s:setupWrapping()
   set wrap
@@ -267,8 +273,6 @@ vmap <C-s> <Esc>:w<CR>
 
 map <F4> :q<CR>
 imap <F4> :q<CR>
-map <F1> :NERDTreeToggle<CR>
-imap <F1> <Esc>:NerdTreeToggle<CR>
 
 
 " Command-Shift-F for Ack
@@ -315,18 +319,18 @@ imap <Leader>= <Esc> <C-w>=
 
 inoremap jj <Esc>
 
-" https://github.com/Shougo/neocomplcache
-let g:neocomplcache_enable_at_startup = 0
-
 " improvements in paste clipboard
 imap <C-v> <Esc>"+pa
 
 " improvements copy to clipboard
 vmap <C-c> "+y
 
-" repeat the last command and put the cursor at start of change. 
-" not nice with plugins repeat. it set up in the beginning of the file
-" map . .`[
+" COPY & PASTE WITH SYSTEM CLIPBOARD
+if has("mac")
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
+elseif has("unix")
+endif
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
@@ -335,9 +339,6 @@ map Y y$
 "css speed
 map <F8> <C-x>
 map <F9> <C-a>
-
-"split next comma to new line
-" map <F3> f,lr<CR>
 
 
 " custom word toggling
@@ -392,18 +393,5 @@ function! HtmlIndent()
   silent 1,$!xmllint --format --recover - 2>/dev/null 
 endfunction
 
-" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
 
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
+
