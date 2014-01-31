@@ -31,15 +31,27 @@ Bundle 'groenewege/vim-less'
 Bundle 'sunaku/vim-ruby-minitest'
 
 Bundle 'tpope/vim-unimpaired'
-  " Bubble single lines
-  nmap <D-Up> [e
-  nmap <D-Down> ]e
-  " Bubble multiple lines
-  vmap <D-Up> [egv
-  vmap <D-Down> ]egv
-  " indent visual block
-  vmap <D-Right> >gv
-  vmap <D-Left> <gv
+  if has("mac")
+    " Bubble single lines
+    nmap <D-Up> [e
+    nmap <D-Down> ]e
+    " Bubble multiple lines
+    vmap <D-Up> [egv
+    vmap <D-Down> ]egv
+    " indent visual block
+    vmap <D-Right> >gv
+    vmap <D-Left> <gv
+  elseif has("unix")
+    " Bubble single lines
+    nmap <C-Up> [e
+    nmap <C-Down> ]e
+    " Bubble multiple lines
+    vmap <C-Up> [egv
+    vmap <C-Down> ]egv
+    " indent visual block
+    vmap <C-Right> >gv
+    vmap <C-Left> <gv
+  endif
 
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'edsono/vim-matchit'
@@ -239,7 +251,6 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-
 noremap 0 ^
 noremap ^ 0
 map <A-0> ^
@@ -261,12 +272,6 @@ let g:JSLintHighlightErrorLine = 0
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 " let macvim_hig_shift_movement = 1
 
-" in mac
-map <D-s> :w<CR>
-imap <D-s> <Esc>:w<CR>
-vmap <D-s> <Esc>:w<CR>
-
-"in ubuntu (D-s is settings shortcut)
 map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
 vmap <C-s> <Esc>:w<CR>
@@ -274,9 +279,6 @@ vmap <C-s> <Esc>:w<CR>
 map <F4> :q<CR>
 imap <F4> :q<CR>
 
-
-" Command-Shift-F for Ack
-map <D-F> mM:Ack<space>
 map <C-F> mM:Ack<space>
 
 
@@ -319,17 +321,14 @@ imap <Leader>= <Esc> <C-w>=
 
 inoremap jj <Esc>
 
-" improvements in paste clipboard
-imap <C-v> <Esc>"+pa
-
-" improvements copy to clipboard
-vmap <C-c> "+y
 
 " COPY & PASTE WITH SYSTEM CLIPBOARD
 if has("mac")
   vmap <C-x> :!pbcopy<CR>
   vmap <C-c> :w !pbcopy<CR><CR>
 elseif has("unix")
+  imap <C-v> <Esc>"+pa
+  vmap <C-c> "+y
 endif
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
