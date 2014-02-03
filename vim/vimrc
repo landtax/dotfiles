@@ -183,7 +183,8 @@ let g:buffergator_sort_regime = "mru"
 
 
 " cursor line changes color on insert mode
-hi CursorLine ctermbg=grey cterm=none
+" hi CursorLine ctermbg=grey cterm=none
+hi CursorLine cterm=none
 au InsertEnter * set cursorline
 au InsertLeave * set nocursorline
 
