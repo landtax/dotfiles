@@ -125,6 +125,7 @@ Bundle 'vim-scripts/HTML-AutoCloseTag'
 Bundle 'vim-scripts/toggle_words.vim'
 Bundle 'vim-scripts/swap-parameters'
 Bundle 'mattn/emmet-vim'
+let g:user_emmet_leader_key = '<S-Tab>'
 "Bundle 'bling/vim-airline'
 
 "check
