@@ -238,7 +238,7 @@ endfunction
 " Less is css
 "au BufNewFile,BufRead *.less set filetype=css
 " .js.node is javascript
-"au BufNewFile,BufRead *.js.node set filetype=javascript
+au BufNewFile,BufRead *.js.node set filetype=javascript
 
 au BufNewFile,BufRead *.html set filetype=html
 au BufRead,BufNewFile *.txt call s:setupWrapping()
