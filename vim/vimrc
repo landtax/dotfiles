@@ -127,6 +127,9 @@ Bundle 'vim-scripts/toggle_words.vim'
 Bundle 'vim-scripts/swap-parameters'
 Bundle 'mattn/emmet-vim'
 let g:user_emmet_leader_key = '<S-Tab>'
+Bundle 'gcmt/wildfire.vim'
+let g:wildfire_water_map = "<S-Enter>"
+
 "Bundle 'bling/vim-airline'
 
 "check
