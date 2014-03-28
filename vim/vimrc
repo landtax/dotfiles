@@ -75,7 +75,6 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'scrooloose/syntastic'
-  let g:syntastic_quiet_messages=0
   let g:syntastic_javascript_checkers = ['jslint']
 
 Bundle 'majutsushi/tagbar'
@@ -287,6 +286,11 @@ imap <F4> :q<CR>
 
 map <C-F> mM:Ack<space>
 
+" select last paste in visual mode
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Repeat last change on multiple lines
+vmap . :normal .<CR>
 
 " Command-Option-ArrowKey to switch viewports
 map <C-k> <C-w>k
