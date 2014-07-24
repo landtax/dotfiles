@@ -28,6 +28,7 @@ Bundle 'chrisbra/csv.vim'
 Bundle 'mmalecki/vim-node.js'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'groenewege/vim-less'
+Bundle 'slim-template/vim-slim.git'
 Bundle 'sunaku/vim-ruby-minitest'
 
 Bundle 'tpope/vim-unimpaired'
@@ -110,7 +111,6 @@ Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-dispatch'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'thinca/vim-visualstar'
-Bundle 'terryma/vim-multiple-cursors'
 Bundle 'bronson/vim-trailing-whitespace'
 
 Bundle 'railscasts'
@@ -128,7 +128,7 @@ Bundle 'mattn/emmet-vim'
 let g:user_emmet_leader_key = '<S-Tab>'
 Bundle 'gcmt/wildfire.vim'
 let g:wildfire_water_map = "<S-Enter>"
-
+Bundle 'rking/ag.vim'
 "Bundle 'bling/vim-airline'
 
 "check
