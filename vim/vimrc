@@ -221,6 +221,17 @@ map <F2> :set nowrap! <CR>
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 set wildignore+=*.png,*.jpg,*.gif,*.bmp
+set wildmode=list:longest,full
+set wildmenu "turn on wild menu
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
+set wildignore+=*/.nx/**,*.app
 
 " Status bar
 set laststatus=2
@@ -232,6 +243,8 @@ function! s:setupWrapping()
   set textwidth=72
 endfunction
 
+" ctags
+let g:rails_ctags_arguments = ['--languages=ruby -f ~/tags']
 
 
 " maybe done somewhere else
