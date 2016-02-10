@@ -83,7 +83,10 @@ Bundle 'scrooloose/nerdtree'
   let NERDTreeIgnore=['\.rbc$', '\~$']
   let NERDTreeQuitOnOpen=1
   map <F1> :NERDTreeToggle<CR>
-  imap <F1> <Esc>:NerdTreeToggle<CR>
+  imap <F1> <Esc>:NERDTreeToggle<CR>
+
+  map º :NERDTreeToggle<CR>
+  imap º <Esc>:NERDTreeToggle<CR>
 
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'tpope/vim-endwise'
@@ -294,8 +297,8 @@ map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
 vmap <C-s> <Esc>:w<CR>
 
-map <F4> :q<CR>
-imap <F4> :q<CR>
+map <D-w> :q<CR>
+imap <D-w> :q<CR>
 
 map <C-F> mM:Ack<space>
 
@@ -396,7 +399,7 @@ let g:_toggle_words_dict = {'*': [
     \ [],
     \ ],  }
 
-map <F3> <Esc>:ToggleWord<CR>
+map <D-o> <Esc>:ToggleWord<CR>
 
 " Escape/Unescape HTML
 function! HtmlEscape()
