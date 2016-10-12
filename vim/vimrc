@@ -4,34 +4,35 @@ let mapleader=","
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My bundles here:
 "
 " original repos on GitHub
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-git'
-Bundle 'timcharper/textile.vim'
-Bundle 'skwp/vim-rspec'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'chrisbra/csv.vim'
-Bundle 'mmalecki/vim-node.js'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'groenewege/vim-less'
-Bundle 'slim-template/vim-slim.git'
-Bundle 'sunaku/vim-ruby-minitest'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-git'
+Plugin 'timcharper/textile.vim'
+Plugin 'skwp/vim-rspec'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'chrisbra/csv.vim'
+Plugin 'mmalecki/vim-node.js'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'groenewege/vim-less'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'elixir-lang/vim-elixir'
 
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
   if has("mac")
     " Bubble single lines
     nmap <D-Up> [e
@@ -54,13 +55,13 @@ Bundle 'tpope/vim-unimpaired'
     vmap <C-Left> <gv
   endif
 
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'edsono/vim-matchit'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'edsono/vim-matchit'
   " % to bounce from do to end etc.
   runtime! macros/matchit.vim
 
-Bundle 'ervandew/supertab'
-Bundle 'itspriddle/ZoomWin'
+Plugin 'ervandew/supertab'
+Plugin 'itspriddle/ZoomWin'
   map <C-a>z :ZoomWin<CR>
   map <Leader><Space> :ZoomWin<CR>
   " Without setting this, ZoomWin restores windows in a way that causes
@@ -68,18 +69,18 @@ Bundle 'itspriddle/ZoomWin'
   " This is likely a bludgeon to solve some other issue, but it works
   set noequalalways
 
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'garbas/vim-snipmate'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'scrooloose/syntastic'
   let g:syntastic_javascript_checkers = ['jslint']
 
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
   let NERDTreeIgnore=['\.rbc$', '\~$']
   let NERDTreeQuitOnOpen=1
   map <F1> :NERDTreeToggle<CR>
@@ -88,10 +89,10 @@ Bundle 'scrooloose/nerdtree'
   map º :NERDTreeToggle<CR>
   imap º <Esc>:NERDTreeToggle<CR>
 
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'tpope/vim-endwise'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'tpope/vim-endwise'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
   if has("mac")
     let g:gist_clip_command = 'pbcopy'
   elseif has("unix")
@@ -100,38 +101,38 @@ Bundle 'mattn/gist-vim'
   let g:gist_detect_filetype = 1
   let g:gist_open_browser_after_post = 1
 
-Bundle 'vim-scripts/vimwiki'
-Bundle 'ap/vim-css-color'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'chrisbra/NrrwRgn'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'rgarver/Kwbd.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'skalnik/vim-vroom'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-repeat'
-Bundle 'honza/vim-snippets'
-Bundle 'tpope/vim-dispatch'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'thinca/vim-visualstar'
-Bundle 'bronson/vim-trailing-whitespace'
+Plugin 'vim-scripts/vimwiki'
+Plugin 'ap/vim-css-color'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'rgarver/Kwbd.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'skalnik/vim-vroom'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-repeat'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-dispatch'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'thinca/vim-visualstar'
+Plugin 'bronson/vim-trailing-whitespace'
 
-Bundle 'railscasts'
-Bundle 'oguzbilgic/sexy-railscasts-theme'
+Plugin 'railscasts'
+Plugin 'oguzbilgic/sexy-railscasts-theme'
   colorscheme sexy-railscasts
 
-Bundle 'kurkale6ka/vim-quotes'
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'ervandew/sgmlendtag'
-Bundle 'acustodioo/vim-enter-indent'
-Bundle 'vim-scripts/HTML-AutoCloseTag'
-Bundle 'vim-scripts/toggle_words.vim'
-Bundle 'vim-scripts/swap-parameters'
-Bundle 'mattn/emmet-vim'
+Plugin 'kurkale6ka/vim-quotes'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'ervandew/sgmlendtag'
+Plugin 'acustodioo/vim-enter-indent'
+Plugin 'vim-scripts/HTML-AutoCloseTag'
+Plugin 'vim-scripts/toggle_words.vim'
+Plugin 'vim-scripts/swap-parameters'
+Plugin 'mattn/emmet-vim'
 let g:user_emmet_leader_key = '<S-Tab>'
-Bundle 'gcmt/wildfire.vim'
+Plugin 'gcmt/wildfire.vim'
 let g:wildfire_water_map = "<S-Enter>"
-Bundle 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 "Bundle 'bling/vim-airline'
 
 "check
@@ -146,10 +147,10 @@ Bundle 'rking/ag.vim'
 filetype plugin indent on     " required!
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install (update) bundles
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
