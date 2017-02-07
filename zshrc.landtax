@@ -1,3 +1,10 @@
+# add following to .zshrc
+#
+# source zshrc.landtax
+#
+# and create a symlink to this file
+
+# landtax theme needs to be copied to themes folder first
 ZSH_THEME="landtax"
 
 plugins=(osx jira history fancy-ctrl-z docker-compose dirhistory bgnotify git branch bundler colored-man-pages common-aliases dircycle)
