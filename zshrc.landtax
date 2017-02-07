@@ -1,0 +1,13 @@
+ZSH_THEME="landtax"
+
+plugins=(osx jira history fancy-ctrl-z docker-compose dirhistory bgnotify git branch bundler colored-man-pages common-aliases dircycle)
+
+export JIRA_URL='https://xxx.atlassian.net'
+export JIRA_NAME='landtax'
+export JIRA_PREFIX='XXX-'
+export JIRA_RAPID_BOARD=true #` - Set to `true` if you use Rapid Board
+export JIRA_DEFAULT_ACTION='dashboard' #` - Action to do when `jira` is called with no arguments; defaults to "new"
+
+export BUNDLER_EDITOR=mvim
+
+alias gg="git status"
