@@ -17,7 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 " original repos on GitHub
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-git'
@@ -31,6 +30,10 @@ Plugin 'groenewege/vim-less'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'fatih/vim-go'
+
+Plugin 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_github=1
 
 Plugin 'tpope/vim-unimpaired'
   if has("mac")
