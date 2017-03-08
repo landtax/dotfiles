@@ -6,4 +6,5 @@ git config --global color.branch auto
 git config --global color.branch auto
 git config --global color.ui true
 git config --global format.pretty oneline
+git config --global push.default current
 
