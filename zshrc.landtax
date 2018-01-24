@@ -21,3 +21,6 @@ alias gg="git status"
 alias gc="git commit"
 
 alias be="bundle exec"
+
+source ~/dotfiles/tmuxinator.zsh
+export EDITOR='mvim'
